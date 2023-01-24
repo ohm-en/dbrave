@@ -6,11 +6,17 @@
 Builds Brave Browser into a Docker image for use in a container based browser profile manager (unreleased).
 
 * Usage
-
-** Manual & Run
-Build the image. This requires a username and password to generate the user.
+** Install
+*** With Docker Hub
+The image can easily be pulled from its Docker Hub [[https://hub.docker.com/r/asiohm22/dbrave][page]] with the following:
 
 #+begin_src shell
+  docker pull asiohm22/dbrave
+#+end_src
+*** Manual Build
+Build the image. This requires a username and password to generate the user.
+
+#+begin_src shell 
   git clone https://github.com/ohm-en/dbrave <directory>
   cd ./<directory>
   USER="hiccup" && \
@@ -18,7 +24,9 @@ Build the image. This requires a username and password to generate the user.
   docker build --build-arg USER=$USER --build-arg PASS=$PASS --rm -t dbrave:v0.1 .
 #+end_src
 
-Once built, you can use a script like the following to launch a Brave instance. 
+** Run
+
+With a compiled image, you can use a script like the following to launch a Brave instance. 
 
 #+begin_src shell
   docker run --rm \
